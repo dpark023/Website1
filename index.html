@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sure-Step GUI Mockup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Sure-Step</h2>
+    <ul>
+        <li onclick="showPage('dashboard')">Dashboard</li>
+        <li onclick="showPage('patient-profile')">Patient Profile</li>
+        <li onclick="showPage('patient-template')">Patient Template</li>
+        <li onclick="showPage('community')">Community Board</li>
+        <li onclick="showPage('consent')">Consent & Sharing</li>
+        <li onclick="showPage('settings')">Settings</li>
+    </ul>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
+    <h1>Dashboard</h1>
+    <div class="square">Today's Tasks</div>
+    <div class="square">Upcoming Appointments</div>
+    <div class="square">Medication Reminders</div>
+    <div class="square">Patient Quick Access</div>
+</section>
+
+<!-- PATIENT PROFILE -->
+<section id="patient-profile" class="page">
+    <h1>Patient Profile</h1>
+
+    <div class="square">Patient Overview</div>
+    <div class="square">Vitals Log</div>
+    <div class="square">Medications</div>
+    <div class="square">Recent Notes</div>
+
+    <div class="square" onclick="showPage('edit-template')">
+        Edit Patient Profile Template
+    </div>
+
+    <div class="square premium">
+        AI Logging (Premium)
+        <span class="premium-tag">Premium</span>
+    </div>
+</section>
+
+<!-- PATIENT TEMPLATE -->
+<section id="patient-template" class="page">
+    <h1>Create Patient Template</h1>
+
+    <div class="template-card-container">
+        <div class="square template-card" onclick="showTemplatePreview('custom')">Create Custom Template</div>
+        <div class="square template-card" onclick="showTemplatePreview('diabetes')">Diabetes</div>
+        <div class="square template-card" onclick="showTemplatePreview('alz')">Alzheimer’s</div>
+        <div class="square template-card" onclick="showTemplatePreview('heart')">Heart Disease</div>
+        <div class="square template-card" onclick="showTemplatePreview('postop')">Post-Op Care</div>
+        <div class="square template-card" onclick="showTemplatePreview('cancer')">Cancer Care</div>
+        <div class="square template-card" onclick="showTemplatePreview('pain')">Chronic Pain</div>
+
+    </div>
+
+    <div id="template-preview-wrapper" class="template-preview-wrapper">
+
+        <!-- DIABETES -->
+        <div id="preview-diabetes" class="template-preview hidden">
+            <h2>Diabetes Template</h2>
+            <div class="preview-block">Blood Sugar Logs</div>
+            <div class="preview-block">Insulin Tracking</div>
+            <div class="preview-block">Meal Logging</div>
+            <div class="preview-block">Carb Counting</div>
+            <div class="preview-block">Medication Times</div>
+            <div class="preview-block">Exercise & Activity</div>
+            <div class="preview-block">Hydration Tracking</div>
+            <div class="preview-block">Daily Notes</div>
+        </div>
+
+        <!-- ALZHEIMER’S -->
+        <div id="preview-alz" class="template-preview hidden">
+            <h2>Alzheimer’s Template</h2>
+            <div class="preview-block">Cognitive Tasks</div>
+            <div class="preview-block">Behavior Notes</div>
+            <div class="preview-block">Orientation Check</div>
+            <div class="preview-block">Daily Mood</div>
+            <div class="preview-block">Triggers / Soothing Methods</div>
+            <div class="preview-block">Sleep Tracking</div>
+            <div class="preview-block">Daily Notes</div>
+        </div>
+
+        <!-- HEART -->
+        <div id="preview-heart" class="template-preview hidden">
+            <h2>Heart Disease Template</h2>
+            <div class="preview-block">Blood Pressure Logs</div>
+            <div class="preview-block">Heart Rate Logs</div>
+            <div class="preview-block">Oxygen Saturation</div>
+            <div class="preview-block">Medication Schedule</div>
+            <div class="preview-block">Symptoms</div>
+            <div class="preview-block">Daily Activity</div>
+            <div class="preview-block">Diet Notes</div>
+        </div>
+
+        <!-- POST-OP -->
+        <div id="preview-postop" class="template-preview hidden">
+            <h2>Post-Op Template</h2>
+            <div class="preview-block">Wound Checks</div>
+            <div class="preview-block">Pain Logs</div>
+            <div class="preview-block">Temperature Tracking</div>
+            <div class="preview-block">Medication Adherence</div>
+            <div class="preview-block">Mobility Notes</div>
+            <div class="preview-block">Drain Output Logs</div>
+            <div class="preview-block">Daily Notes</div>
+        </div>
+
+        <!-- CANCER -->
+        <div id="preview-cancer" class="template-preview hidden">
+            <h2>Cancer Care Template</h2>
+            <div class="preview-block">Treatment Schedule</div>
+            <div class="preview-block">Symptom Logs</div>
+            <div class="preview-block">Pain Tracking</div>
+            <div class="preview-block">Fatigue Tracking</div>
+            <div class="preview-block">Medication Tracking</div>
+            <div class="preview-block">Nutrition Notes</div>
+        </div>
+
+        <!-- CHRONIC PAIN -->
+        <div id="preview-pain" class="template-preview hidden">
+            <h2>Chronic Pain Template</h2>
+            <div class="preview-block">Pain Level Logs</div>
+            <div class="preview-block">Mobility Notes</div>
+            <div class="preview-block">Triggers</div>
+            <div class="preview-block">Medication Tracking</div>
+            <div class="preview-block">Sleep Notes</div>
+            <div class="preview-block">Daily Function</div>
+        </div>
+
+        <!-- CUSTOM -->
+        <div id="preview-custom" class="template-preview hidden">
+            <h2>Custom Template</h2>
+            <div class="mockup-hybrid">
+                <div class="mockup-field"><strong>Name:</strong> Editable</div>
+                <div class="mockup-field"><strong>Age:</strong> Editable</div>
+                <div class="mockup-field"><strong>Conditions:</strong> Add/Delete Tags</div>
+                <div class="mockup-field"><strong>Add Field:</strong> + Button</div>
+                <div class="mockup-field"><strong>Daily Routine:</strong> Editable List</div>
+                <div class="mockup-field"><strong>Medications:</strong> Editable Items</div>
+                <div class="mockup-field large"><strong>Notes:</strong> Editable Text</div>
+            </div>
+        </div>
+
+        <button id="backToCards" class="back-button hidden" onclick="hideTemplatePreview()">
+            ← Back to Templates
+        </button>
+
+    </div>
+</section>
+
+<!-- EDIT TEMPLATE -->
+<section id="edit-template" class="page">
+    <h1>Edit Patient Profile Template</h1>
+    <div class="square">Basic Info Fields</div>
+    <div class="square">Conditions / Tags</div>
+    <div class="square">Preferences</div>
+    <div class="square">Daily Routine Items</div>
+    <div class="square">Save Template</div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" class="page">
+    <h1>Community Board</h1>
+    <div class="square">General Discussions</div>
+    <div class="square">Tips & Resources</div>
+    <div class="square">Q & A</div>
+    <div class="square">Share Template</div>
+    <div class="square premium">
+        Schedule Coverage (Premium)
+        <span class="premium-tag">Premium</span>
+    </div>
+</section>
+
+<!-- CONSENT -->
+<section id="consent" class="page">
+    <h1>Consent & Sharing</h1>
+    <div class="square">Share With Family</div>
+    <div class="square">Share With Providers</div>
+    <div class="square">Permission Management</div>
+    <div class="square">Download Consent Forms</div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings" class="page">
+    <h1>Settings</h1>
+    <div class="square">Notifications</div>
+    <div class="square">Privacy & Security</div>
+    <div class="square">Account Settings</div>
+    <div class="square">Data Export / Import</div>
+    <div class="square">Customize UI</div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
